@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+$pale-blue: hsl(225, 100%, 94%);
+$bright-blue: hsl(245, 75%, 52%);
+$light-purple: hsl(245, 82%, 68%);
+$very-pale-blue: hsl(225, 100%, 98%);
+$white: hsl(0, 0%, 100%);
+$desaturated-blue: hsl(225, 23%, 55%);
+$dark-blue: hsl(223, 47%, 23%);
+
+
+:root {
+  font-size: 16px;
+  font-family: 'Red Hat Display', sans-serif;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-width: 375px;
+  min-height: 100vh;
+  background-color: $pale-blue;
+  background-image: url('./images/pattern-background-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: 100vw 50vh;
+  color: $desaturated-blue;
+
+  footer {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    z-index: 0;
+
+    p {
+      text-align: center;
+    }
+
+    a {
+      color: $bright-blue;
+    }
+  }
+
+  main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  h1, p {
+    margin-top: 0;
+  }
+}
+
+.card {
+  max-width: 375px;
+  border-radius: 1rem;
+  margin: 0 1.5rem;
+  background-color: $white;
+  z-index: 1;
+
+  .card__image img{
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .card__content {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+  }
+
+  .card__content > h1 {
+    font-size: 1.5rem;
+    color: $dark-blue;
+    font-weight: 900;
+  }
+
+  .card__content > .song {
+    display: flex;
+    padding: 1rem;
+    background-color: $very-pale-blue;
+    border-radius: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .icon-and-name > * + * {
+    margin-left: .875rem;
+    vertical-align: middle;
+  }
+
+  .song__icon {
+    display: inline-block;
+    width: 2.5rem;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .song__description {
+    display: inline-block;
+  }
+
+  .song__description > .name,
+  .song__description > .price {
+    margin-bottom: 0rem;
+    font-size: .875rem;
+  }
+
+  .song__description > .name {
+    font-weight: 900;
+    color: $dark-blue;
+  }
+
+  .song__action a{
+    font-weight: 900;
+    font-size: .875rem;
+
+    &:hover {
+      color: $light-purple;
+    }
+
+    &:active {
+      color: $light-purple;
+      text-decoration: none;
+    }
+  }
+
+  .card__content > .action > button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 700;
+  }
+
+  .card__content > .action > .payment {
+    background-color: $bright-blue;
+    color: $white;
+    box-shadow: 0 1rem .5rem .1rem $pale-blue;
+    transition: box-shadow .2s linear, background-color .2s linear;
+
+    &:active {
+      box-shadow: 0 0 .5rem .1rem $pale-blue;
+      background-color: $light-purple;
+    }
+  }
+
+
+  .card__content > .action > .cancel {
+    margin-top: 1rem;
+    background-color: transparent;
+    color: inherit;
+    transition: color .2s linear;
+    user-select: none;
+
+    &:active {
+      color: $dark-blue;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    background-image: url('./images/pattern-background-desktop.svg');
+  }
+
+
+  .card {
+    max-width: 440px;
+
+    
+    .card__content {
+      padding: 2rem 3rem;
+    }
+
+    .card__content > .song {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .song__icon {
+      width: 3rem;
+    }
+
+    .song__description > .name,
+    .song__description > .price {
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    .card__content > .action > .payment {
+      font-size: .875rem;
+    }
+  }
+}
